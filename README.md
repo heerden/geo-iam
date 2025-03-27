@@ -113,7 +113,7 @@ Should use graph theory and adjacency lists to solve the access comparison probl
 
 ![Graph](design/geo-iam-Graph.drawio.png)
 
-Graph properties:
+#### Graph properties:
 
 * It is **Sparse**: there is only one path between any two nodes and to the top-level node, from path to root.
 * **Directed Tree Graph**: edges have direction.
@@ -129,7 +129,7 @@ Graph properties:
 
 ![Graph](design/geo-iam-Representation.drawio.png)
 
-Graph Operations:
+#### Graph Operations:
 * Use adjacency list to show which each node connects to, can be multiple connections to all children
 * Use inverted adjacency list or parent map to show the parent for each node, can only be a single connection
   * Used for path to root and backtracking
@@ -137,7 +137,19 @@ Graph Operations:
   * Explore deep first
 * Breadth-First Search (BFS)
   * Explore level by level
-* Use element-wise multiplication to find overlying access between two users
+* Can use element-wise multiplication to find overlying access between two users
+
+#### Storage Problem:
+
+**Alternative 1:**
+Only store top level structures in the DB, but need to recalculate entire graph for every access operation
+
+**Alternative 2:**
+Store the structures of the entire tree in the DB, so more storage,
+but less calculation required to represent the entire graph for access operation
+
+**Alternative 3:**
+Only store top level structure in DB, but store a calculated adjacency matrix on the user record for access operations
 
 ### Process
 
