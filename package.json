@@ -1,0 +1,14 @@
+{
+  "name": "geo-iam",
+  "version": "0.0.2",
+  "description": "An Identity and Access Management (IAM) service for Geo Systems",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
